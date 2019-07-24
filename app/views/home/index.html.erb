@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+	Welcome <%= current_user.email %>
+<% else %>
+	<%= link_to "Login", new_user_session_path %>
+	<%= link_to "Register", new_user_registration_path %>
+<% end  %>
+
+<%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
+
+<button class="show-btn">Mostrar alerta</button>
+
+<script>
+	$('.show-btn').on('click', function(){
+		alert("Esta es una prueba")
+	})
+</script>
