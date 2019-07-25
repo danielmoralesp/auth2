@@ -9,4 +9,10 @@ class ArticleTest < ActiveSupport::TestCase
   	@article = Article.new
   	assert_not @article.save
   end
+
+  test "Capitalize title" do
+  	@article = Article.new(title: "hola")
+  	@article.capitalize_title
+  	assert_equal("Hola", @article.title)
+  end
 end
